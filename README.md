@@ -27,7 +27,7 @@ CarDealerApp is a modern web application built with Next.js and Tailwind CSS. It
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/CarDealerApp.git
+   git clone https://github.com/Cunegundess/CarDealerApp.git
    cd CarDealerApp
    ```
 
@@ -73,8 +73,3 @@ Contributions are welcome! Please follow these steps:
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-### Acknowledgements
-Next.js - The React framework used for building the application.
-Tailwind CSS - The CSS framework used for styling.
-NHTSA API - Provides vehicle data.
