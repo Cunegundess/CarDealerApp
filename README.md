@@ -1,5 +1,8 @@
 # CarDealerApp
 
+<img src="/public/filter_page.png"/>
+<img src="/public/results_page.png"/>
+
 ## Overview
 
 CarDealerApp is a modern web application built with Next.js and Tailwind CSS. It allows users to filter and view vehicle models based on vehicle type and model year. The application utilizes data from the National Highway Traffic Safety Administration (NHTSA) API to provide detailed vehicle information.
@@ -15,6 +18,7 @@ CarDealerApp is a modern web application built with Next.js and Tailwind CSS. It
 - **Next.js:** A React framework for building server-rendered or statically-exported applications.
 - **Tailwind CSS:** A utility-first CSS framework for creating custom designs without leaving your HTML.
 - **TypeScript:** A strongly typed programming language that builds on JavaScript, providing better tooling at any scale.
+- **React Suspense:** A feature for handling asynchronous rendering in React, improving the user experience by managing loading states.
 
 ## Setup
 
@@ -56,6 +60,19 @@ Open http://localhost:3000 in your browser to view the application.
     npm run lint
     ```
 
+### Building for Production
+- To build the application for production, use:
+   ```bash
+   npm run build
+   ```
+This command creates an optimized production build of your application, which can be deployed to a hosting service.
+
+### Running Production Build Locally
+- To start the production build locally after running the build command:
+   ```bash
+   npm start
+   ```
+
 ### Folder Structure
 - app/: Contains the application logic and pages, including dynamic routes like result/[makeId]/[year].
 - components/: Contains reusable React components.
@@ -73,3 +90,9 @@ Contributions are welcome! Please follow these steps:
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+### Acknowledgements
+Next.js - The React framework used for building the application.
+Tailwind CSS - The CSS framework used for styling.
+NHTSA API - Provides vehicle data.
+React Suspense - Used for handling asynchronous rendering and improving user experience.

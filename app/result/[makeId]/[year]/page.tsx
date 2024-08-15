@@ -40,7 +40,7 @@ export default async function ResultPage({ params }: { params: { makeId: string;
   const vehicleData = await getVehicleModels(makeId, year);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-slate-900 to-black flex flex-col items-center justify-center p-10">
+    <div className="min-h-screen bg-gradient-to-r from-slate-900 to-black flex flex-col items-center justify-center p-10 pb-0 mt-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">Vehicle Models</h1>
       <p className="text-center mb-6">
         Showing results for Make ID: {makeId} and Year: {year}
@@ -48,6 +48,15 @@ export default async function ResultPage({ params }: { params: { makeId: string;
       <Suspense fallback={<LoadingSpinner />}>
         <VehicleModels data={vehicleData} />
       </Suspense>
+      <footer className="mt-auto py-8 text-center">
+        <p className="text-sm text-gray-400">
+          Developed by{' '}
+          <a 
+            href='https://www.linkedin.com/in/lucas-cunegundes/' 
+            target='_blank' 
+            rel="noopener noreferrer">&lt;/Cunegundess&gt;</a>
+        </p>
+      </footer>
     </div>
   );
 }

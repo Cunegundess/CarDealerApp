@@ -38,62 +38,71 @@ const FilterPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-slate-900 to-black flex items-center justify-center">
-  <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-    <h1 className="text-3xl font-extrabold mb-8 text-center text-gray-800">
-      Vehicle Filter
-    </h1>
+    <div className="min-h-screen bg-gradient-to-r from-slate-900 to-black flex flex-col items-center justify-center">
+     <div className="bg-white p-8 rounded-lg shadow-lg w-96 mt-auto">
+      <h1 className="text-3xl font-extrabold mb-8 text-center text-gray-800">
+        Vehicle Filter
+      </h1>
 
-    <div className="mb-6">
-      <label htmlFor="vehicleType" className="block text-sm font-semibold text-gray-700 mb-2">
-        Vehicle Type
-      </label>
-      <select
-        id="vehicleType"
-        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700"
-        value={selectedType}
-        onChange={(e) => setSelectedType(e.target.value)}
+      <div className="mb-6">
+        <label htmlFor="vehicleType" className="block text-sm font-semibold text-gray-700 mb-2">
+          Vehicle Type
+        </label>
+        <select
+          id="vehicleType"
+          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700"
+          value={selectedType}
+          onChange={(e) => setSelectedType(e.target.value)}
+        >
+          <option value="" className="text-gray-400">Select a vehicle type</option>
+          {vehicleTypes.map((type) => (
+            <option key={type.MakeId} value={type.MakeId} className="text-gray-800">
+              {type.MakeName}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="mb-8">
+        <label htmlFor="modelYear" className="block text-sm font-semibold text-gray-700 mb-2">
+          Model Year
+        </label>
+        <select
+          id="modelYear"
+          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700"
+          value={selectedYear}
+          onChange={(e) => setSelectedYear(e.target.value)}
+        >
+          <option value="" className="text-gray-400">Select a model year</option>
+          {years.map((year) => (
+            <option key={year} value={year} className="text-gray-800">
+              {year}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <button
+        className={`w-full py-3 px-4 rounded-md text-white font-semibold transition-colors duration-300 ${
+          selectedType && selectedYear
+            ? 'bg-blue-600 hover:bg-blue-700'
+            : 'bg-gray-400 cursor-not-allowed'
+        }`}
+        onClick={handleNextClick}
+        disabled={!selectedType || !selectedYear}
       >
-        <option value="" className="text-gray-400">Select a vehicle type</option>
-        {vehicleTypes.map((type) => (
-          <option key={type.MakeId} value={type.MakeId} className="text-gray-800">
-            {type.MakeName}
-          </option>
-        ))}
-      </select>
+        Next
+      </button>
     </div>
-
-    <div className="mb-8">
-      <label htmlFor="modelYear" className="block text-sm font-semibold text-gray-700 mb-2">
-        Model Year
-      </label>
-      <select
-        id="modelYear"
-        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700"
-        value={selectedYear}
-        onChange={(e) => setSelectedYear(e.target.value)}
-      >
-        <option value="" className="text-gray-400">Select a model year</option>
-        {years.map((year) => (
-          <option key={year} value={year} className="text-gray-800">
-            {year}
-          </option>
-        ))}
-      </select>
-    </div>
-
-    <button
-      className={`w-full py-3 px-4 rounded-md text-white font-semibold transition-colors duration-300 ${
-        selectedType && selectedYear
-          ? 'bg-blue-600 hover:bg-blue-700'
-          : 'bg-gray-400 cursor-not-allowed'
-      }`}
-      onClick={handleNextClick}
-      disabled={!selectedType || !selectedYear}
-    >
-      Next
-    </button>
-  </div>
+    <footer className="mt-auto py-8 text-center">
+      <p className="text-sm text-gray-400">
+        Developed by{' '}
+        <a 
+          href='https://www.linkedin.com/in/lucas-cunegundes/' 
+          target='_blank' 
+          rel="noopener noreferrer">&lt;/Cunegundess&gt;</a>
+      </p>
+    </footer>
   </div>
   );
 };
